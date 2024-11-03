@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+     <meta name="description" content="Decentralized Charts and Swaps">
+    <meta name="keywords" content="Simple and lightweight swap interface for DexTop with decentralized price data.">
+    <meta name="author" content="DexTop">
+    <link rel="canonical" href="https://dextop.pro/chart/" />
+    <link rel="icon" type="image/svg+xml" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://tokens.dextop.pro/dexxx.svg" />
+    <title>DexTop ChartSwap</title>
+    <script type="module" crossorigin src="./assets/index-D0QXlbb6.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-HUHtt28u.css"> 
+    <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="DexTop Chart Swaps" />
+<meta name="twitter:description" content="Simple and lightweight swap interface for DexTop with decentralized price data." />
+<meta name="twitter:image" content="https://tokens.dextop.pro/dexxx.svg" />
+<meta name="twitter:label1" content="" />
+<meta name="twitter:data1" content="DexTop" />
+     <link href="alert.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+
+<style>
+
+  
+  /* cyrillic-ext */
+  @font-face {
+    font-family: 'Rubik Broken Fax';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWWcd1Gi.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  }
+
+  /* cyrillic */
+  @font-face {
+    font-family: 'Rubik Broken Fax';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWycd1Gi.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+
+  /* hebrew */
+  @font-face {
+    font-family: 'Rubik Broken Fax';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWqcd1Gi.woff2) format('woff2');
+    unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+  }
+
+  /* math */
+  @font-face {
+    font-family: 'Rubik Broken Fax';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8URScd1Gi.woff2) format('woff2');
+    unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0330, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2034-2037, U+2057, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2102, U+210A-210E, U+2110-2112, U+2115, U+2119-211D, U+2124, U+2128, U+212C-212D, U+212F-2131, U+2133-2138, U+213C-2140, U+2145-2149, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B6, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+  }
+
+  /* symbols */
+  @font-face {
+    font-family: 'Rubik Broken Fax';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UQacd1Gi.woff2) format('woff2');
+    unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8B1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA88, U+1FA90-1FABD, U+1FABF-1FAC5, U+1FACE-1FADB, U+1FAE0-1FAE8, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+  }
+
+  /* latin-ext */
+  @font-face {
+    font-family: 'Rubik Broken Fax';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWacd1Gi.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* latin */
+  @font-face {
+    font-family: 'Rubik Broken Fax';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWicdw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  /* cyrillic-ext */
+  @font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  }
+
+  /* cyrillic */
+  @font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nRivN04w.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+
+  /* greek */
+  @font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nWivN04w.woff2) format('woff2');
+    unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+  }
+
+  /* latin-ext */
+  @font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nbivN04w.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* latin */
+  @font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  body {
+
+    background: #000000;
+    background-size: cover;
+    
+    font-family: "Press Start 2P", system-ui;
+  }
+
+  .price-display,
+  .portfolio-display {
+    text-align: center;
+    font-family: "Rubik Broken Fax", system-ui;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .switch-icon {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    
+  }
+
+  .switch-icon:hover {
+    transform: scale(1.5);
+    
+  }
+
+  .switch2 {
+    text-align: center;
+    font-family: "Rubik Broken Fax", system-ui;
+    color: #fff;
+    font-size: 25px;
+  }
+.switch4 {
+      text-align: center;
+      font-family: "Rubik Broken Fax", system-ui;
+      color: #fff;
+      font-size: 25px;
+      display: inline-block;
+      border: 2px solid #fff; 
+      padding: 10px; 
+      border-radius: 10px; 
+      background-color: #333; 
+    }
+  .switch3 {
+    text-align: center;
+    font-family: "Rubik Broken Fax", system-ui;
+    color: #fff;
+    font-size: 18px;
+  }
+</style>
+
+
+
+  <br><br>
+  <style>
+  .sci-fi-card {
+  background: #27324498;
+  padding: 20px;
+  border-radius: 15px;
+  width: auto;
+  max-width: 600px;
+  box-shadow: 0 0 15px rgba(0, 192, 255, 0.3), 0 0 30px rgba(0, 192, 255, 0.1);
+  border: 2px solid #22ca00;
+  position: relative;
+  overflow: hidden;
+  margin:10px;
+}
+
+.sci-fi-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sci-fi-card2 {
+  background: #27324498;
+  padding: 20px;
+  border-radius: 15px;
+  width: auto;
+  max-width: 1200px;
+  box-shadow: 0 0 15px rgba(0, 192, 255, 0.3), 0 0 30px rgba(0, 192, 255, 0.1);
+  border: 2px solid #22ca00;
+  position: relative;
+  overflow: hidden;
+  margin:10px;
+}
+
+.sci-fi-content2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.price-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.price-link:hover {
+  color: #22ca00;
+}
+
+    .address-input {
+      padding-left: 20px;
+    }
+
+    .address-input input[type="text"],
+    .address-input button {
+      border-radius: 10px;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container button {
+      border-radius: 5px;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-input {
+      display: flex;
+      align-items: center;
+      background-color: green;
+      padding: 2px;
+      border-radius: 8px;
+      width: fit-content;
+      margin: 0 auto;
+      
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      background-color: #082705;
+      border-radius: 8px;
+      padding: 2px;
+    }
+
+    .input-container input[type="text"] {
+      border: none;
+      background: none;
+      padding: 6px 10px;
+      color: #fff;
+      font-family: "Rubik Broken Fax", system-ui;
+      font-size: 18px;
+      
+      width: 95%;
+      
+      border-radius: 8px;
+     
+      outline: none;
+      margin-left: -1px;
+      
+    }
+
+    .select-container {
+      background-color: #154712;
+      border-radius: 8px;
+      padding: 6px;
+    }
+
+    .select-container select {
+      background-color: #154712;
+      border: none;
+      padding: 6px 10px;
+      color: #fff;
+      font-family: "Press Start 2P", system-ui;
+      font-size: 18px;
+      
+      cursor: pointer;
+      outline: none;
+      margin-right: -1px;
+      
+
+    }
+
+
+    .address-input button:hover {
+      background-color: rgb(0, 13, 128);
+      cursor: pointer;
+    }
+
+    .spinner {
+      width: 150px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin: 0 auto;
+      font-size: 25px;
+    }
+
+    .bounce1 {
+      animation: rocket-bounce 2s infinite;
+      animation-delay: -0.66s;
+    }
+
+    .bounce2 {
+      animation: rocket-bounce 2s infinite;
+      animation-delay: -0.42s;
+    }
+
+    .bounce3 {
+      animation: rocket-bounce 2s infinite;
+    }
+
+    @keyframes rocket-bounce {
+
+      0%,
+      49% {
+        opacity: 0;
+      }
+
+      50%,
+      100% {
+        opacity: 1;
+      }
+    }
+
+    button {
+      border-radius: 10px;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgb(0, 192, 0);
+      cursor: pointer;
+    }
+    .timebut {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      border-radius: 10px;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease;
+    }
+
+    .timebut:hover {
+      background-color: rgb(0, 13, 128);
+      cursor: pointer;
+    }
+    .connected {
+      background-color: #007bff;
+    }
+
+    .connected:hover {
+      background-color: #0056b3;
+    }
+
+    .conbutton {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      font-family: "Press Start 2P", system-ui;
+    }
+      .card2 {
+    bottom: 20px;
+    background: linear-gradient(#2C4029, #2C4029) padding-box, linear-gradient(rgba(146, 161, 145 , 0.5), rgba(146, 161, 145 , 0.5)) border-box;
+    border-radius: 5vw; 
+    padding: 2%; 
+    border: 1vw solid transparent; 
+    max-width: 400px;
+    margin: 0 auto; 
+}
+
+#stars,
+#stars2,
+#stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+   
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+
+       button {
+    font-family: "Press Start 2P", system-ui;
+    background-color: #04b313;
+    color: rgb(3, 3, 3);
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: rgb(0, 45, 128);
+    color: rgb(255, 255, 255);
+}
+
+        h1 {
+            font-family: "Press Start 2P", system-ui;
+        }
+         label {
+            font-family: "Press Start 2P", system-ui;
+        }
+        label2 {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 10px; 
+}
+
+  </style>
+  
+  <center>
+    <div class="sci-fi-card">
+      <div class="sci-fi-content"></div>
+    <span class="switch2">DEX Swap </span><br>
+    <span class="switch2"></span><br>
+    <span id="buydisplay" style="color: white;" class="switch3"></span><br>
+    <div class="buy-input">
+      <div class="input-container">
+        <div class="select-container">
+          <select id="tokenSelect">
+            <option value="tokenA">PLS</option>
+            <option value="tokenB">DEX</option>
+          </select>
+        </div>
+       
+        <input type="text" id="buyAmount" name="buyAmount" placeholder="Enter amount">
+
+      </div>
+    </div>
+
+    <br><br>
+
+    <span id="expected" style="color: white;" class="switch4"></span><br><br>
+    <br>
+    <button id="swapButton" class="button">Swap</button></div>
+    <br><br><br> 
+    <!-- Canvas for the chart 
+
+<label for="slippage" style="color: white;">Slippage: <span id="slippageValue">0</span>%</label><br><br>
+
+<button onclick="swap()">SWAP</button><br><br><img id="switchButton" src="switch.png" alt="Switch Icon" class="switch-icon">-->
+
+<div class="sci-fi-card2">
+  <div class="sci-fi-content2"></div>
+  <button id="change" class="timebut">TimeFrame
+  </button>
+  <br><br>
+    <div id="priceChange"></div>
+    
+    <div class="price-display" id="priceDisplay"></div>
+    <br>
+    
+    <div class="portfolio-display" id="portfolioDisplay"></div>
+    <div id="loader" class="spinner">
+      <span class="bounce1">🚀</span>
+      <span class="bounce2">🚀</span>
+      <span class="bounce3">🚀</span>
+
+    </div>
+
+
+   
+    <br>
+  
+    <canvas id="priceChart" width="800" height="250"></canvas>
+    <br><br>
+  </div>
+  <br><br>
+    <div class="address-input">
+      <label for="ethereumAddress" style="color: white;" class="price-display">Enter your PLS address:</label><br>
+      <input type="text" id="ethereumAddress" name="ethereumAddress"><br><br>
+      <button onclick="saveAddress()">Save Address</button>
+    </div>
+
+    <span id='stars'></span>
+    <span id='stars2'></span>
+    <span id='stars3'></span>
+    <br><br><br><br><br><br><br>
+     <!-- Canvas for the chart
+    <script
+    type="text/javascript"
+    src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.development.js"
+></script>
+<style>
+    #my-chart {
+        height: 100vh;
+        width: 100vw;
+    }
+</style>
+<lightweight-chart
+            id="my-chart"
+            autosize
+            type="line"
+            series-options='{"color": "red"}'
+            data='[{ "time": "2018-10-19", "value": 52.89 },{ "time": "2018-10-22", "value": 51.65 }]'
+        ></lightweight-chart>
+
+        -->
+
+    <span id="connectWalletButton"></span>
+<script src="art.js" type="application/javascript"></script>
+<script src="let.js" type="application/javascript"></script>
+<script src="ball.js" type="application/javascript"></script>
+<script src="golfer.js" type="application/javascript"></script>
+<script src="alert.js" type="application/javascript"></script>
+
+  </body>
+</html>
